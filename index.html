@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>EmoPP-Demo</title>
+		<link type="text/css" href="./EmoPP_files/basic.css" rel="stylesheet">
+		<link type="text/css" href="./EmoPP_files/index.css" rel="stylesheet">
+		<link type="text/css" href="./EmoPP_files/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="./EmoPP_files/jquery-3.3.1.min.js.下载"></script>
+		<script type="text/javascript" src="./EmoPP_files/index.js.下载"></script>
+	<style type="text/css">.cyxy-trs-target.colored {
+  background-color: rgba(0, 185, 119, 0.05);
+}
+
+.cyxy-target-popup {
+  padding: 1.3rem 12px;
+  position: absolute;
+  display: -webkit-flex;
+  display: inline-flex;
+  flex-direction: row;
+  overflow: scroll;
+  vertical-align: middle;
+  z-index: 199099;
+  top: 1px;
+  left: 1px;
+  background: <font color="blue">#</font>fff;
+  opacity: 0.98;
+  /*margin: 0px 5%;*/
+  height: auto;
+  width: auto;
+  border: 1px solid <font color="blue">#</font>e6e6e6;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+  /*height: 7rem;*/
+}
+
+@media (max-width: 468px) {
+  .cyxy-target-popup {
+    /*width: 90%;*/
+    /*margin: 0px 5%;*/
+    left: 10%;
+    /*right: 5%;*/
+    /*width: 30rem;*/
+    /*height: 14.58rem;*/
+  }
+}
+
+<font color="blue">#</font>cyxy-popup-left-slide {
+  height: 22px;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+<font color="blue">#</font>cyxy-popup-right-slide {
+  height: 22px;
+  display: inline;
+  vertical-align: middle;
+  margin-left: 0px;
+  cursor: pointer;
+}
+
+<font color="blue">#</font>cyxy-popup-userinfo {
+  display: inline;
+}
+
+.cyxy-target-count {
+  display: inline;
+  vertical-align: middle;
+  font-size: 10px;
+}
+
+<font color="blue">#</font>cyxy-popup-avatar {
+  /*margin-right: 30px;*/
+  /*font-size: 14px;*/
+  display: inline;
+  height: 32px;
+  vertical-align: middle;
+  border-radius: 16px;
+}
+
+<font color="blue">#</font>cyxy-popup-name-time {
+  display: -webkit-flex;
+  display: inline-flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  /*position: relative;*/
+  vertical-align: middle;
+  text-align: left;
+  margin-left: 6px;
+}
+
+<font color="blue">#</font>cyxy-popup-name {
+  /*vertical-align: middle;*/
+  /*display: flex;*/
+  font-size: 14px;
+  color: <font color="blue">#</font>333;
+  height: 18px;
+  overflow: hidden;
+  max-width: 84px;
+}
+
+<font color="blue">#</font>cyxy-popup-time {
+  /*margin-right: 30px;*/
+  /*font-size: 14px;*/
+  /*display: flex;*/
+  font-size: 12px;
+  margin-top: 4px;
+  color: <font color="blue">#</font>999;
+}
+
+.cyxy-footer {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  padding: 0px 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0.9;
+  border: 1px solid <font color="blue">#</font>e6e6e6;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+  z-index: 201712;
+  text-align: center;
+}
+
+.cyxy-footer-p {
+  padding: 12px 0px;
+  margin: 0px;
+  font-size: 12px;
+  color: <font color="blue">#</font>333;
+  background: <font color="blue">#</font>fff;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 200;
+}
+
+<font color="blue">#</font>cyxy-popup-favour {
+  text-align: center;
+  display: inline;
+  margin-right: 20px;
+  margin-left: 46px;
+  cursor: pointer;
+}
+
+<font color="blue">#</font>cyxy-popup-favour.commit {
+  /*padding: 2px 6px;*/
+  /*border: 1px solid <font color="blue">#</font>00B977;*/
+  /*border-radius: 4px;*/
+}
+
+<font color="blue">#</font>cyxy-popup-oppose {
+  text-align: center;
+  display: inline;
+  cursor: pointer;
+}
+
+<font color="blue">#</font>cyxy-popup-favour-img {
+  display: inline;
+  height: 20px;
+  /*width: 22px;*/
+  vertical-align: middle;
+}
+
+<font color="blue">#</font>cyxy-popup-favour-img.commit {
+  /*height: 22px;*/
+  /*vertical-align: middle;*/
+}
+
+<font color="blue">#</font>cyxy-popup-oppose-img {
+  display: inline;
+  height: 18px;
+  vertical-align: middle;
+}
+
+<font color="blue">#</font>cyxy-popup-favour-num {
+  font-size: 14px;
+  margin-left: 4px;
+  /*margin-left: 0.47rem;*/
+  color: <font color="blue">#</font>999999;
+}
+
+<font color="blue">#</font>cyxy-popup-oppose-num {
+  font-size: 14px;
+  margin-left: 4px;
+  /*margin-left: 0.47rem;*/
+  color: <font color="blue">#</font>999;
+}
+
+.caption-window.ytp-caption-window-bottom {
+  width: 800px;
+  /* height: 100px; */
+  /* margin-left: -400px; */
+}
+
+@media (max-width: 320px) {
+  <font color="blue">#</font>cyxy-popup-favour {
+    margin-right: 0.8rem;
+    margin-left: 1.5rem;
+  }
+
+  <font color="blue">#</font>cyxy-popup-left-slide {
+    margin-right: 0.8rem;
+  }
+
+  <font color="blue">#</font>cyxy-popup-right-slide {
+    margin-left: 1rem;
+  }
+}
+
+.login-hint-a {
+  border-bottom: none;
+  display: block;
+  color: <font color="blue">#</font>999;
+  font-size: 10px;
+}
+
+.login-hint-a:visited {
+  color: <font color="blue">#</font>999;
+}
+
+.layui-m-layer {
+  color: <font color="blue">#</font>333;
+  position: relative;
+  z-index: 2147483647;
+}
+
+.layui-m-layer * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.layui-m-layermain,
+.layui-m-layershade {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.layui-m-layershade {
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+}
+
+.layui-m-layermain {
+  display: table;
+  font-family: Helvetica, arial, sans-serif;
+  pointer-events: none;
+}
+
+.layui-m-layermain .layui-m-layersection {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.layui-m-layerchild {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  background-color: <font color="blue">#</font>fff;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+}
+
+@-webkit-keyframes layui-m-anim-scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes layui-m-anim-scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.layui-m-anim-scale {
+  animation-name: layui-m-anim-scale;
+  -webkit-animation-name: layui-m-anim-scale;
+}
+
+@-webkit-keyframes layui-m-anim-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(800px);
+    transform: translateY(800px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes layui-m-anim-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(800px);
+    transform: translateY(800px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.layui-m-anim-up {
+  -webkit-animation-name: layui-m-anim-up;
+  animation-name: layui-m-anim-up;
+}
+
+.layui-m-layer0 .layui-m-layerchild {
+  width: 90%;
+  max-width: 640px;
+}
+
+.layui-m-layer1 .layui-m-layerchild {
+  border: none;
+  border-radius: 0;
+}
+
+.layui-m-layer2 .layui-m-layerchild {
+  width: auto;
+  max-width: 260px;
+  min-width: 40px;
+  border: none;
+  background: 0 0;
+  box-shadow: none;
+  color: <font color="blue">#</font>fff;
+}
+
+.layui-m-layerchild h3 {
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+}
+
+.layui-m-layerbtn span,
+.layui-m-layerchild h3 {
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.layui-m-layercont {
+  padding: 50px 30px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.layui-m-layer1 .layui-m-layercont {
+  padding: 0;
+  text-align: left;
+}
+
+.layui-m-layer2 .layui-m-layercont {
+  text-align: center;
+  padding: 0;
+  line-height: 0;
+}
+
+.layui-m-layer2 .layui-m-layercont i {
+  width: 25px;
+  height: 25px;
+  margin-left: 8px;
+  display: inline-block;
+  background-color: <font color="blue">#</font>fff;
+  border-radius: 100%;
+  -webkit-animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+  animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.layui-m-layerbtn,
+.layui-m-layerbtn span {
+  position: relative;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+}
+
+.layui-m-layer2 .layui-m-layercont p {
+  margin-top: 20px;
+}
+
+@-webkit-keyframes layui-m-anim-loading {
+  0%,
+  100%,
+  80% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes layui-m-anim-loading {
+  0%,
+  100%,
+  80% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+.layui-m-layer2 .layui-m-layercont i:first-child {
+  margin-left: 0;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.layui-m-layer2 .layui-m-layercont i.layui-m-layerload {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.layui-m-layer2 .layui-m-layercont > div {
+  line-height: 22px;
+  padding-top: 7px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.layui-m-layerbtn {
+  display: box;
+  display: -moz-box;
+  display: -webkit-box;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 0;
+  border-top: 1px solid <font color="blue">#</font>d0d0d0;
+  background-color: <font color="blue">#</font>f2f2f2;
+}
+
+.layui-m-layerbtn span {
+  display: block;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-box-flex: 1;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.layui-m-layerbtn span[yes] {
+  color: <font color="blue">#</font>40affe;
+}
+
+.layui-m-layerbtn span[no] {
+  border-right: 1px solid <font color="blue">#</font>d0d0d0;
+  border-radius: 0 0 0 5px;
+}
+
+.layui-m-layerbtn span:active {
+  background-color: <font color="blue">#</font>f6f6f6;
+}
+
+.layui-m-layerend {
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  font-weight: 400;
+  background: 0 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  font-size: 30px;
+}
+
+.layui-m-layerend::after,
+.layui-m-layerend::before {
+  position: absolute;
+  left: 5px;
+  top: 15px;
+  content: "";
+  width: 18px;
+  height: 1px;
+  background-color: <font color="blue">#</font>999;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  border-radius: 3px;
+}
+
+.layui-m-layerend::after {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.layui-m-layer .layui-m-layer-footer {
+  position: fixed;
+  width: 95%;
+  max-width: 100%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  background: 0 0;
+}
+
+.layui-m-layer-footer .layui-m-layercont {
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.layui-m-layer-footer .layui-m-layerbtn {
+  display: block;
+  height: auto;
+  background: 0 0;
+  border-top: none;
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span[no] {
+  color: <font color="blue">#</font>fd482c;
+  border-top: 1px solid <font color="blue">#</font>c2c2c2;
+  border-radius: 0 0 5px 5px;
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span[yes] {
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.layui-m-layer .layui-m-layer-msg {
+  width: auto;
+  max-width: 90%;
+  margin: 0 auto;
+  bottom: -150px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: <font color="blue">#</font>fff;
+}
+
+.layui-m-layer-msg .layui-m-layercont {
+  padding: 10px 20px;
+}
+
+.collection-success {
+  /*opacity: 0.6;*/
+  /*background: <font color="blue">#</font>EAEAEA;*/
+  color: <font color="blue">#</font>ffffff;
+}
+.collection-success:hover {
+  /*opacity: 0.45;*/
+  /*background: <font color="blue">#</font>000000;*/
+  color: <font color="blue">#</font>ffffff;
+}
+.layui-m-layercont .cyxy-trs-target {
+  display: none;
+}
+.collection-icon {
+  width: 12px;
+  height: 13px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABLCAYAAAGkfvF/AAAABGdBTUEAALGPC/xhBQAABsRJREFUeAHtnE2IHEUUx3cmG434SdRFMaKYgB4UJYJEiAfxIp4EFTwIsh48hhwFMV4UcxBvHlQIQhAxF7/w5Ce4KysKoiisuIcF8QuNZgOiZje7/l5tv0pNdXVVT/dM70zvNLzUx3v13v/9q7qrptNJZ4prfX19Q8rQ1e12O1EDHdTVSqyMGlkYtlLgSvTTrm5jY+MBty11+uKZ2Si24rtw2lHgateRSsybIRNgh8QoJOhWjTcqi+q2qCyFKWpElM+T4TDah8xaxmnk2BYv9B+TPwqBKzXWk58Zg090uJKYdGBHXWqHXwrjHdw+iTyD57d9gxLtVcY9ZOwkGldhgiWcGZPopBQ5yYL/5uorOTKrcGrqhszhy+LQEEme3yM3SQdpSq6bUyEdJa/c3OKwNEqdTUGYc1QGgOtA7Ss5yjhSH5slfKwgp3t7+28ZUnH0B3J5v8NlgmSiZNx0lu8SHXP9OsJ+2Y5R4mxHxUrpqU7531pHIToqI/KdVXKkC9J1VsmREO87y90ibpTUTKlexuQcsTDvxeAiNUqUstEcZcx90W005gQHM4KE62ljVyUVBptbi/I9G6yKowzJknUilSqOQLLQ46Sqo5wTOiqvI9/ZwBxNswZWq/AkiBh7GrnU1OUPyDuD7JR6k5cLxMYFyEq2LGpvJNZpjUoXQJdk43+u4WdgQwe2iAaFqDFAzMQJJH+j+5nI+snWUO2zqO/bbWucLNYPrs6tN8aQbFxc5k6GqX0ZsHddMKauyDEaKkNuYGKZrceJ/ZTq7Q8V0NsztiqlZLBk9THS95FQxieuXfi/Xm3AcH9up1alU/7KoN1Oe2hV4rxltsVsPhubMsmI4GYdOdP2mMnU6WgEEEAu1JgZEa+4lJeZMte+Vj0DYHywXr5A7vAdNgZIwEhwQPyOzPhAtN0YID1Aa+CisrEHYxEAv3/kANmXM4KUuZWj8nc+6iG15VXbI8T8z/Vv33hwOx5CcYRyGE9kN6apA2SNys2U5se9GujbAlncHwHmLlUMuwTIPHLQjyNTdg/yga9ooh2686ZdMCCW48B6E2CIMReKY59DgJGfMmdDRk322dt+FMBI4hZQkyzEYk0AxdgR3fZkiEfLbkTe+96aYsgeYZOGNQwAckpPidRvjLpSw6hRTSUgZjWOlFxXFbpUw0KDASkA8aLGykCF30Gq0YDiRt0A6k2Nl4HKv5NSg6inASoB9ZnGlDLnWpU5xRA7ALWocXOgVDHE+EHXgPpFY1O3Jwy72wdH0YnxExSPFulr9J9iQ5/Bv7zFk3PZmjlxKGWhwxJGO8SwRtC+hgJoIbV1WCr78lzD2L6OCTEkfmHoGooDNWLEhh7H/wViADvy18vnNbJ1hBABJLioU1MW8lW7DzCLiN0+YOYcDr31akcp6QAg8xpTb6ieoars6RxSAzCjs3UAxt9cLw7m3QRDgPGPH1cHwUhnQ4DcA5r5mmKrAekR9rZCIKpogiGNVaY8d/+XsW7AZgIoRfLoMsSzYkcKfRN6e/yQYGxy71DkD97DQTJHvOd91yP3Sk/+mu9DZCfyqY92mG3izYf8u6+F92NwjLWUfiEQ8jRmfRCygNyZgi0vYeWTiyXKK1LGLdMvlsoHYr7U7VVL+p5F7Ooq5aitRkqKlhBTjtm2EuLlNXIbq4dvy5sTghJTMCFoQlCCgYR6soK2E0HswK/pbiwl119I+jVChKS2raCed8SQcxnyFfIjcl2Eh0JVqwjip8Ne5KifLeTsQZaRb5D+PjN0l2S2LMf+oAgJ8iv8uJ+bttHJ1z+7fCKDbR2kJQPHniBNlFzOR97X3PwS3etI/C4KDGoNQQ5R5lnk56ptSMq9CNKx9k25Y9w6gjRZiLgWWdZc/RKdfAnYewWMWkuQZg4RtyB/+rlLm2sNeVBte95xSie7QPDLdx3glzh7CXnc7x/3NjzI94AHahEEMfJJ/z/jTkYRfkj6O/4ELxqZ9ePgX+RhRD7zbdVFTmdI6O5t9ZDWGWTVyzPoZMEz6Cy6zX+sLwN8I5StfUiTmzlR+zlrG/1hJdGWqtSyjQSRU+oc9IIlxK8oMVq2iSBySZ2k38Am/hxWYrRsA0HkkPot9gk25gsuf8Hk2kqMluNOEPif01z8Et23SF+/5pOfT+YYHeEOkpe/AN3rQ2TL/om+g5TLvi7Vjt9/qdGjp9/8L4cyXBCyguxH9lQhx7gJLMPWbvNV5rNtK6gKB9ExE4Ki9IzgP/5J4G1cPVlBCconBCUIkn9zMPk+KEKSHMm35RdmnIteRWYj3BiVfDQph6krkduRr1MDWqSPf2afJfo/soLh9AvFdjIAAAAASUVORK5CYII=")
+    no-repeat;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+}
+.collection-success > a {
+  margin-left: 12px;
+  vertical-align: middle;
+}
+.cy_free_box {
+  position: relative;
+}
+.cy_free_box img {
+  width: 100%;
+  cursor: pointer;
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -ms-user-select: none; /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+}
+.layui-m-layer-cy_free_content {
+  background: inherit !important;
+}
+</style><style type="text/css">.cyxy-trs-target.colored {
+  background-color: rgba(0, 185, 119, 0.05);
+}
+
+.cyxy-target-popup {
+  padding: 1.3rem 12px;
+  position: absolute;
+  display: -webkit-flex;
+  display: inline-flex;
+  flex-direction: row;
+  overflow: scroll;
+  vertical-align: middle;
+  z-index: 199099;
+  top: 1px;
+  left: 1px;
+  background: <font color="blue">#</font>fff;
+  opacity: 0.98;
+  /*margin: 0px 5%;*/
+  height: auto;
+  width: auto;
+  border: 1px solid <font color="blue">#</font>e6e6e6;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 5px;
+  /*height: 7rem;*/
+}
+
+@media (max-width: 468px) {
+  .cyxy-target-popup {
+    /*width: 90%;*/
+    /*margin: 0px 5%;*/
+    left: 10%;
+    /*right: 5%;*/
+    /*width: 30rem;*/
+    /*height: 14.58rem;*/
+  }
+}
+
+<font color="blue">#</font>cyxy-popup-left-slide {
+  height: 22px;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 14px;
+  cursor: pointer;
+}
+
+<font color="blue">#</font>cyxy-popup-right-slide {
+  height: 22px;
+  display: inline;
+  vertical-align: middle;
+  margin-left: 0px;
+  cursor: pointer;
+}
+
+<font color="blue">#</font>cyxy-popup-userinfo {
+  display: inline;
+}
+
+.cyxy-target-count {
+  display: inline;
+  vertical-align: middle;
+  font-size: 10px;
+}
+
+<font color="blue">#</font>cyxy-popup-avatar {
+  /*margin-right: 30px;*/
+  /*font-size: 14px;*/
+  display: inline;
+  height: 32px;
+  vertical-align: middle;
+  border-radius: 16px;
+}
+
+<font color="blue">#</font>cyxy-popup-name-time {
+  display: -webkit-flex;
+  display: inline-flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  /*position: relative;*/
+  vertical-align: middle;
+  text-align: left;
+  margin-left: 6px;
+}
+
+<font color="blue">#</font>cyxy-popup-name {
+  /*vertical-align: middle;*/
+  /*display: flex;*/
+  font-size: 14px;
+  color: <font color="blue">#</font>333;
+  height: 18px;
+  overflow: hidden;
+  max-width: 84px;
+}
+
+<font color="blue">#</font>cyxy-popup-time {
+  /*margin-right: 30px;*/
+  /*font-size: 14px;*/
+  /*display: flex;*/
+  font-size: 12px;
+  margin-top: 4px;
+  color: <font color="blue">#</font>999;
+}
+
+.cyxy-footer {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  padding: 0px 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0.9;
+  border: 1px solid <font color="blue">#</font>e6e6e6;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+  z-index: 201712;
+  text-align: center;
+}
+
+.cyxy-footer-p {
+  padding: 12px 0px;
+  margin: 0px;
+  font-size: 12px;
+  color: <font color="blue">#</font>333;
+  background: <font color="blue">#</font>fff;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 200;
+}
+
+<font color="blue">#</font>cyxy-popup-favour {
+  text-align: center;
+  display: inline;
+  margin-right: 20px;
+  margin-left: 46px;
+  cursor: pointer;
+}
+
+<font color="blue">#</font>cyxy-popup-favour.commit {
+  /*padding: 2px 6px;*/
+  /*border: 1px solid <font color="blue">#</font>00B977;*/
+  /*border-radius: 4px;*/
+}
+
+<font color="blue">#</font>cyxy-popup-oppose {
+  text-align: center;
+  display: inline;
+  cursor: pointer;
+}
+
+<font color="blue">#</font>cyxy-popup-favour-img {
+  display: inline;
+  height: 20px;
+  /*width: 22px;*/
+  vertical-align: middle;
+}
+
+<font color="blue">#</font>cyxy-popup-favour-img.commit {
+  /*height: 22px;*/
+  /*vertical-align: middle;*/
+}
+
+<font color="blue">#</font>cyxy-popup-oppose-img {
+  display: inline;
+  height: 18px;
+  vertical-align: middle;
+}
+
+<font color="blue">#</font>cyxy-popup-favour-num {
+  font-size: 14px;
+  margin-left: 4px;
+  /*margin-left: 0.47rem;*/
+  color: <font color="blue">#</font>999999;
+}
+
+<font color="blue">#</font>cyxy-popup-oppose-num {
+  font-size: 14px;
+  margin-left: 4px;
+  /*margin-left: 0.47rem;*/
+  color: <font color="blue">#</font>999;
+}
+
+.caption-window.ytp-caption-window-bottom {
+  width: 800px;
+  /* height: 100px; */
+  /* margin-left: -400px; */
+}
+
+@media (max-width: 320px) {
+  <font color="blue">#</font>cyxy-popup-favour {
+    margin-right: 0.8rem;
+    margin-left: 1.5rem;
+  }
+
+  <font color="blue">#</font>cyxy-popup-left-slide {
+    margin-right: 0.8rem;
+  }
+
+  <font color="blue">#</font>cyxy-popup-right-slide {
+    margin-left: 1rem;
+  }
+}
+
+.login-hint-a {
+  border-bottom: none;
+  display: block;
+  color: <font color="blue">#</font>999;
+  font-size: 10px;
+}
+
+.login-hint-a:visited {
+  color: <font color="blue">#</font>999;
+}
+
+.layui-m-layer {
+  color: <font color="blue">#</font>333;
+  position: relative;
+  z-index: 2147483647;
+}
+
+.layui-m-layer * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.layui-m-layermain,
+.layui-m-layershade {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.layui-m-layershade {
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: auto;
+}
+
+.layui-m-layermain {
+  display: table;
+  font-family: Helvetica, arial, sans-serif;
+  pointer-events: none;
+}
+
+.layui-m-layermain .layui-m-layersection {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.layui-m-layerchild {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  background-color: <font color="blue">#</font>fff;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+}
+
+@-webkit-keyframes layui-m-anim-scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes layui-m-anim-scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.layui-m-anim-scale {
+  animation-name: layui-m-anim-scale;
+  -webkit-animation-name: layui-m-anim-scale;
+}
+
+@-webkit-keyframes layui-m-anim-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(800px);
+    transform: translateY(800px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes layui-m-anim-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(800px);
+    transform: translateY(800px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.layui-m-anim-up {
+  -webkit-animation-name: layui-m-anim-up;
+  animation-name: layui-m-anim-up;
+}
+
+.layui-m-layer0 .layui-m-layerchild {
+  width: 90%;
+  max-width: 640px;
+}
+
+.layui-m-layer1 .layui-m-layerchild {
+  border: none;
+  border-radius: 0;
+}
+
+.layui-m-layer2 .layui-m-layerchild {
+  width: auto;
+  max-width: 260px;
+  min-width: 40px;
+  border: none;
+  background: 0 0;
+  box-shadow: none;
+  color: <font color="blue">#</font>fff;
+}
+
+.layui-m-layerchild h3 {
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+}
+
+.layui-m-layerbtn span,
+.layui-m-layerchild h3 {
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.layui-m-layercont {
+  padding: 50px 30px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.layui-m-layer1 .layui-m-layercont {
+  padding: 0;
+  text-align: left;
+}
+
+.layui-m-layer2 .layui-m-layercont {
+  text-align: center;
+  padding: 0;
+  line-height: 0;
+}
+
+.layui-m-layer2 .layui-m-layercont i {
+  width: 25px;
+  height: 25px;
+  margin-left: 8px;
+  display: inline-block;
+  background-color: <font color="blue">#</font>fff;
+  border-radius: 100%;
+  -webkit-animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+  animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.layui-m-layerbtn,
+.layui-m-layerbtn span {
+  position: relative;
+  text-align: center;
+  border-radius: 0 0 5px 5px;
+}
+
+.layui-m-layer2 .layui-m-layercont p {
+  margin-top: 20px;
+}
+
+@-webkit-keyframes layui-m-anim-loading {
+  0%,
+  100%,
+  80% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes layui-m-anim-loading {
+  0%,
+  100%,
+  80% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+.layui-m-layer2 .layui-m-layercont i:first-child {
+  margin-left: 0;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.layui-m-layer2 .layui-m-layercont i.layui-m-layerload {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.layui-m-layer2 .layui-m-layercont > div {
+  line-height: 22px;
+  padding-top: 7px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.layui-m-layerbtn {
+  display: box;
+  display: -moz-box;
+  display: -webkit-box;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 0;
+  border-top: 1px solid <font color="blue">#</font>d0d0d0;
+  background-color: <font color="blue">#</font>f2f2f2;
+}
+
+.layui-m-layerbtn span {
+  display: block;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-box-flex: 1;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.layui-m-layerbtn span[yes] {
+  color: <font color="blue">#</font>40affe;
+}
+
+.layui-m-layerbtn span[no] {
+  border-right: 1px solid <font color="blue">#</font>d0d0d0;
+  border-radius: 0 0 0 5px;
+}
+
+.layui-m-layerbtn span:active {
+  background-color: <font color="blue">#</font>f6f6f6;
+}
+
+.layui-m-layerend {
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  font-weight: 400;
+  background: 0 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  font-size: 30px;
+}
+
+.layui-m-layerend::after,
+.layui-m-layerend::before {
+  position: absolute;
+  left: 5px;
+  top: 15px;
+  content: "";
+  width: 18px;
+  height: 1px;
+  background-color: <font color="blue">#</font>999;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  border-radius: 3px;
+}
+
+.layui-m-layerend::after {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.layui-m-layer .layui-m-layer-footer {
+  position: fixed;
+  width: 95%;
+  max-width: 100%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  background: 0 0;
+}
+
+.layui-m-layer-footer .layui-m-layercont {
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.layui-m-layer-footer .layui-m-layerbtn {
+  display: block;
+  height: auto;
+  background: 0 0;
+  border-top: none;
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span[no] {
+  color: <font color="blue">#</font>fd482c;
+  border-top: 1px solid <font color="blue">#</font>c2c2c2;
+  border-radius: 0 0 5px 5px;
+}
+
+.layui-m-layer-footer .layui-m-layerbtn span[yes] {
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.layui-m-layer .layui-m-layer-msg {
+  width: auto;
+  max-width: 90%;
+  margin: 0 auto;
+  bottom: -150px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: <font color="blue">#</font>fff;
+}
+
+.layui-m-layer-msg .layui-m-layercont {
+  padding: 10px 20px;
+}
+
+.collection-success {
+  /*opacity: 0.6;*/
+  /*background: <font color="blue">#</font>EAEAEA;*/
+  color: <font color="blue">#</font>ffffff;
+}
+.collection-success:hover {
+  /*opacity: 0.45;*/
+  /*background: <font color="blue">#</font>000000;*/
+  color: <font color="blue">#</font>ffffff;
+}
+.layui-m-layercont .cyxy-trs-target {
+  display: none;
+}
+.collection-icon {
+  width: 12px;
+  height: 13px;
+  background: url("data:image/png;base64,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")
+    no-repeat;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+}
+.collection-success > a {
+  margin-left: 12px;
+  vertical-align: middle;
+}
+.cy_free_box {
+  position: relative;
+}
+.cy_free_box img {
+  width: 100%;
+  cursor: pointer;
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -ms-user-select: none; /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+}
+.layui-m-layer-cy_free_content {
+  background: inherit !important;
+}
+</style></head>
+	<body>
+		
+		<div class="main">
+			<div class="title">
+				<img class="top-img" src="./EmoPP_files/background.jpg">
+				<span style="font-size: xx-large; font-weight: bold; color:white;">Emotion-Aware Prosodic Phrasing for Expressive Text-to-Speech</span>
+			</div>
+			<div class="content">
+				<div class="section author">
+					<span><b><font _mstmutation="1">Rui Liu</font><sup>1</sup><font _mstmutation="1">, Bin Liu</font><sup>1</sup><font _mstmutation="1">, Haizhou Li</font><sup>2,3</sup></b></span>
+					<span>
+						<sup>1</sup><font _mstmutation="1">Inner Mongolia University, China &nbsp;</font><br>
+						<sup>2</sup><font _mstmutation="1">Shenzhen Research Institute of Big Data, School of Data Science,The Chinese University of Hong Kong, Shenzhen, China</font><br>
+						<sup>3</sup><font _mstmutation="1">National University of Singapore, Singapore
+					</font></span>
+					<span>liurui_imu@163.com, iframe_liu@163.com, haizhouli@cuhk.edu.cn</span>
+				</div>
+				<div class="section">
+					<div class="section-title">ABSTRACT</div>
+					<div class="section-content abstract">
+						Prosodic phrasing is crucial to the naturalness and intelligibility of end-to-end Text-to-Speech (TTS). There exist both linguistic and emotional prosody in natural speech. As the study of prosodic phrasing has been linguistically motivated,  prosodic phrasing for expressive emotion rendering has not been well studied. In this paper, we propose an emotion-aware prosodic phrasing model, termed \textit{EmoPP}, to mine the emotional cues of utterance accurately and predict appropriate phrase breaks. We first conduct objective observations on the ESD dataset to validate the strong correlation between emotion and prosodic phrasing. Then the objective and subjective evaluations show that the EmoPP outperforms all baselines and achieves remarkable performance in terms of emotion expressiveness. The audio samples and the code are available at <a href="https://github.com/AI-S2-Lab/EmoPP"><font color="blue">https://github.com/AI-S2-Lab/EmoPP</font></a>.
+					</div>
+				</div>
+				<div class="section">
+					<div class="section-title">SPEECH DEMO</div>
+					<div class="section-content experiments">
+						To further validate our EmoPP in terms of human perception, we build two emotional TTS systems that take both input text and the phrase breaks information as input.  The phrase break information of the first system is obtained by the BiLSTM model, while the second is obtained by our EmoPP. The emotional TTS is trained with an emotional conversational TTS dataset, DailyTalk, by following this project: <font color="blue">https://github.com/keonlee9420/DailyTalk</font>.
+					</div>
+
+          <div class="section-content experiments"  style="color:red">
+            <strong>Note: We attempted to train the emotional TTS model using the IEMOCAP dataset. However, the synthesized speech produced significant noise. Since IEMOCAP was not originally designed for TTS purposes, it is not optimal for our subjective test.</strong>
+          </div>
+					<div class="section-content ">
+							<div class="module-content">
+								<table id="table_4" style="border-collapse: collapse; border-spacing: 0;">
+									<thead>
+										<colgroup>
+										   <col width="25%">
+										   <col width="13%">
+										   <col width="31%">
+										   <col width="31%">
+										</colgroup>
+										<tr>
+											<th colspan="1" style="text-align: center"><strong>Utterances</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Emotion</strong></th>
+										    <th colspan="1" style="text-align: center">
+												<strong>BiLSTM</strong><br>
+												<span style="font-size: 12px;font-weight: normal;" ><p style="color:blue;">We predict the phrase breaks using the BiLSTM model. <br>If a word is followed by a break, it is marked with a "<font color="blue">#</font>".</p></span>
+											</th>
+										    <th colspan="1" style="text-align: center">
+												<strong>EmoPP</strong><br>
+												<span style="font-size: 12px;font-weight: normal;"><p style="color:blue;">We predict the phrase breaks using the EmoPP model. <br>If a word is followed by a break, it is marked with a "<font color="blue">#</font>".</p></span>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+    										<td style="text-align: center">oh my god, what are you going to do.</td>
+											<td style="text-align: center"><p style="color:blue;">surprise</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>oh my god<font color="blue">#</font>, what<font color="blue">#</font> are you going to do.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/4/0_0_d4.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>oh my god<font color="blue">#</font> what are you going to do.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/4/0_0_d4.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">a rapper party, ho yeah, okay.</td>
+											<td style="text-align: center"><p style="color:blue;">surprise</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>a rapper party ho yeah<font color="blue">#</font> okay.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/5/0_0_d5.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>a rapper<font color="blue">#</font> party<font color="blue">#</font> ho<font color="blue">#</font> yeah<font color="blue">#</font> okay.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/5/0_0_d5.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">i guess we don't need glasses.</td>
+											<td style="text-align: center"><p style="color:blue;">happy</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>i guess<font color="blue">#</font> we don't need glasses.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/8/0_0_d8.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>i guess we don't need glasses.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/8/0_0_d8.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">nonsense, they have a bag of venom behind their fangs and they snap, they snap.</td>
+											<td style="text-align: center"><p style="color:blue;">angry</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>nonsense<font color="blue">#</font> they have a bag of venom<font color="blue">#</font> behind their fangs<font color="blue">#</font> and they snap they snap.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/10/0_0_d10.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>nonsense<font color="blue">#</font> they have a bag of venom behind their fangs and they snap<font color="blue">#</font> they snap.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/10/0_0_d10.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">uh, huh, i didn't come here, get in yelling match either.</td>
+											<td style="text-align: center"><p style="color:blue;">neutral</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>uh<font color="blue">#</font> huh<font color="blue">#</font> i didn't come here get in yelling match either.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/11/0_0_d11.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>uh<font color="blue">#</font> huh<font color="blue">#</font> i didn't come here<font color="blue">#</font> get in yelling match either.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/11/0_0_d11.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">oh, yeah, absolutely absolutely.</td>
+											<td style="text-align: center"><p style="color:blue;">neutral</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>oh yeah<font color="blue">#</font> absolutely absolutely.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/13/0_0_d13.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>oh<font color="blue">#</font> yeah<font color="blue">#</font> absolutely absolutely.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/13/0_0_d13.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">my computer which has all of my data which i'm collecting right now.</td>
+											<td style="text-align: center"><p style="color:blue;">angry</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>my computer which has all of my data which<font color="blue">#</font> i'm collecting right now.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/16/0_0_d16.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>my computer which has all of my data which i'm collecting right now.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/16/0_0_d16.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">just kind of feel numb, you know.</td>
+											<td style="text-align: center"><p style="color:blue;">sad</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>just kind of feel numb<font color="blue">#</font> you know.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/18/0_0_d18.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>just kind of feel numb<font color="blue">#</font> you know.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/18/0_0_d18.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">you have a business here, i said, what the hell is this.</td>
+											<td style="text-align: center"><p style="color:blue;">angry</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>you have a business here<font color="blue">#</font> i said what the hell is this.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/19/0_0_d19.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>you have a business here<font color="blue">#</font> i said<font color="blue">#</font> what the hell is this.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/19/0_0_d19.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+										<tr>
+    										<td style="text-align: center">they don't know why, we don't know why, no one like sent them an invitation or gave them a map or direction.</td>
+    										<td style="text-align: center"><p style="color:blue;">surprise</p></td>
+											<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>they don't know why<font color="blue">#</font> we don't know why no one like sent them an invitation or gave them a map or direction.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/22/0_0_d22.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>they don't know why<font color="blue">#</font> we don't know why<font color="blue">#</font> no one like sent them an invitation or gave them a map or direction.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/22/0_0_d22.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">well, so what do you think.</td>
+											<td style="text-align: center"><p style="color:blue;">surprise</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>well<font color="blue">#</font> so what do you think.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/24/0_0_d24.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>well<font color="blue">#</font> so what do you think.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/24/0_0_d24.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">are you cold, huh, do you want to go home.</td>
+											<td style="text-align: center"><p style="color:blue;">neutral</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>are you cold huh<font color="blue">#</font> do you want to go home.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/27/0_0_d27.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>are you cold<font color="blue">#</font> huh<font color="blue">#</font> do you want to go home.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/27/0_0_d27.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">yeah, it's pretty good.</td>
+											<td style="text-align: center"><p style="color:blue;">happy</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>yeah<font color="blue">#</font> it's pretty good.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/29/0_0_d29.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>yeah<font color="blue">#</font> it's pretty good.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/29/0_0_d29.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">yeah, i mean, candles wouldn't stay--no, i didn't--i didn't know anything about it.</td>
+											<td style="text-align: center"><p style="color:blue;">happy</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>yeah<font color="blue">#</font> i mean candles wouldn't stay--no<font color="blue">#</font> i didn't--i didn't know<font color="blue">#</font> anything about it.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/30/0_0_d30.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>yeah<font color="blue">#</font> i mean<font color="blue">#</font> candles wouldn't stay--no<font color="blue">#</font> i didn't--i didn't know anything about it.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/30/0_0_d30.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">yea, i just want to get this done.</td>
+											<td style="text-align: center"><p style="color:blue;">neutral</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>yea<font color="blue">#</font> i just want to get this done.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/36/0_0_d36.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>yea<font color="blue">#</font> i just want to get this done.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/36/0_0_d36.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">yea, i guess so, oh, my gosh, was she surprised.</td>
+											<td style="text-align: center"><p style="color:blue;">surprise</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>yea<font color="blue">#</font> i guess so<font color="blue">#</font> oh my gosh was she surprised.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/38/0_0_d38.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>yea<font color="blue">#</font> i guess so<font color="blue">#</font> oh<font color="blue">#</font> my gosh<font color="blue">#</font> was she surprised.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/38/0_0_d38.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">oh, yes, they they, you know they love her, and so i mean.</td>
+											<td style="text-align: center"><p style="color:blue;">happy</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>oh<font color="blue">#</font> yes<font color="blue">#</font> they they<font color="blue">#</font> you know<font color="blue">#</font> they love her and so i mean.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/39/0_0_d39.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>oh<font color="blue">#</font> yes<font color="blue">#</font> they they<font color="blue">#</font> you know they love her<font color="blue">#</font> and so i mean.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/39/0_0_d39.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">yes, i mean, she cared about all of us, she was great.</td>
+											<td style="text-align: center"><p style="color:blue;">sad</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>yes<font color="blue">#</font> i mean she cared about all of us<font color="blue">#</font> she was great.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/40/0_0_d40.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>yes<font color="blue">#</font> i mean<font color="blue">#</font> she cared about all of us<font color="blue">#</font> she was great.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/40/0_0_d40.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">yeah, right a cult, i'm looking forward to being in the cult.</td>
+											<td style="text-align: center"><p style="color:blue;">surprise</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>yeah<font color="blue">#</font> right a cult i'm looking forward to being in the cult.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/43/0_0_d43.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>yeah<font color="blue">#</font> right a cult<font color="blue">#</font> i'm looking forward to being in the cult.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/43/0_0_d43.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+										<tr>
+    										<td style="text-align: center">no, i'm just making myself fascinating for you.</td>
+											<td style="text-align: center"><p style="color:blue;">neutral</p></td>
+    										<td style="text-align: center">
+    											<div style="text-align: center;">
+        											<span>no i'm<font color="blue">#</font> just making myself fascinating for you.</span>
+    											</div>
+    											<hr>
+    											<audio src="./demo/model1/44/0_0_d44.wav" controls="" preload=""></audio>
+											</td>
+    										<td style="text-align: center">
+												<div style="text-align: center;">
+        											<span>no<font color="blue">#</font> i'm just making myself fascinating for you.</span>
+    											</div>
+												<hr>
+												<audio src="./demo/model2/44/0_0_d44.wav" controls="" preload=""></audio>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+	
+
+</body></html>
