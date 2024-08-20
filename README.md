@@ -4,7 +4,7 @@
 ## Introduction
 This is an implementation of the following paper.
 > [EmoPP: Emotion-Aware Prosodic Phrasing for Expressive Text-to-Speech.](https://arxiv.org/abs/2309.11724)
-> Submitted to ICASSP'2024
+> Accepted by NCMMSC'2024
 
  [Rui Liu](https://ttslr.github.io/), Bin Liu, [Haizhou Li](https://colips.org/~eleliha/).
  
